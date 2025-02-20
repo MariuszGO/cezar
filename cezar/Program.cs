@@ -12,11 +12,11 @@ class Program
 
         do
         {
-            Console.Write("Niepoprawna wartość. Podaj liczby od 1 do 25: ");
+            Console.Write("Niepoprawna wartość. Podaj liczby od 1 do 32: ");
             int.TryParse(Console.ReadLine(), out klucz);
 
 
-        } while (klucz < 1 || klucz > 25);
+        } while (klucz < 1 || klucz > 32);
 
         string zaszyfrowane = szyfrCezara(zdanie, klucz);
         Console.WriteLine($"Zaszyfrowany tekst: {zaszyfrowane}");
@@ -47,7 +47,7 @@ class Program
                 //    literaBazowa = 'a';
                 //}
 
-                             tmp[i] = (char)(literaBazowa + (litera - literaBazowa + przesuniecie + 26) % 26);
+                             tmp[i] = (char)(literaBazowa + (litera - literaBazowa + przesuniecie + 33) % 33);
 
                 
             }
