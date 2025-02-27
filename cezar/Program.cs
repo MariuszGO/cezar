@@ -16,7 +16,7 @@ class Program
             int.TryParse(Console.ReadLine(), out klucz);
 
 
-        } while (klucz < 1 || klucz > 6);
+        } while (klucz < 1 || klucz > 30);
 
         string zaszyfrowane = szyfrCezara(zdanie, klucz);
         Console.WriteLine($"Zaszyfrowany tekst: {zaszyfrowane}");
@@ -38,7 +38,7 @@ class Program
 
                 char literaBazowa;
 
-                if (litera <= 90 && litera >= 65)
+                if (litera < 97 && litera >= 65)
                 {
                     literaBazowa = 'A';
                 }
