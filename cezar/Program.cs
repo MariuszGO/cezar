@@ -23,6 +23,8 @@ class Program
 
         string odszyfrowane= szyfrCezara(zaszyfrowane, -klucz);
         Console.WriteLine($"Odszyfrowany tekst: {odszyfrowane}");
+
+        test(zdanie, odszyfrowane);
     }
 
     static string szyfrCezara(string zdanie, int przesuniecie)
@@ -60,5 +62,25 @@ class Program
         }
         return new string(tmp);
     }
+
+    static void test(string zdanie, string odszyfrowane)
+    {
+        char[] tmp = zdanie.ToCharArray();
+        char[] tmp1 = odszyfrowane.ToCharArray();
+
+        for (int i = 0; i < tmp.Length; i++)
+        {
+            if (tmp[i] == tmp1[i])
+            {
+                Console.WriteLine("OK");
+            }
+            else
+            {
+                Console.WriteLine("Błąd");
+            }
+        }
+
+    }
+
 }
 
