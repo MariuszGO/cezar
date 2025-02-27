@@ -16,7 +16,7 @@ class Program
             int.TryParse(Console.ReadLine(), out klucz);
 
 
-        } while (klucz < 1 || klucz > 32);
+        } while (klucz < 1 || klucz > 6);
 
         string zaszyfrowane = szyfrCezara(zdanie, klucz);
         Console.WriteLine($"Zaszyfrowany tekst: {zaszyfrowane}");
@@ -31,25 +31,31 @@ class Program
         for (int i = 0; i < tmp.Length; i++)
         {
             char litera = tmp[i];
-            if (char.IsLetter(litera))
+            if (litera != 32)
             {
-                               char literaBazowa =  char.IsUpper(litera) ? 'A' : 'a';
+//                char literaBazowa = char.IsUpper(litera) ? 'A' : 'a';
 
 
-                //char literaBazowa;
+                char literaBazowa;
 
-                //if (char.IsUpper(litera))
-                //{
-                //    literaBazowa = 'A';
-                //}
-                //else
-                //{
-                //    literaBazowa = 'a';
-                //}
+                if (litera <= 90 && litera >= 65)
+                {
+                    literaBazowa = 'A';
+                }
+                else
+                {
+                    literaBazowa = 'a';
+                }
+                //} 97 - 122  litery małe
+                // 65 - 90 litery duże
 
-                             tmp[i] = (char)(literaBazowa + (litera - literaBazowa + przesuniecie + 33) % 33);
+                tmp[i] = (char)(literaBazowa + (litera - literaBazowa + przesuniecie + 32) % 32);
 
-                
+
+            }
+            else
+            {
+                tmp[i] = ' ';
             }
         }
         return new string(tmp);
